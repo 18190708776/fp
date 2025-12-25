@@ -1,0 +1,124 @@
+{
+  "name": "invoice-assistant",
+  "private": true,
+  "version": "1.0.0",
+  "description": "发票助手 - 全国增值税发票查验平台",
+  "author": "yang",
+  "main": "electron.cjs",
+  "type": "module",
+  "scripts": {
+    "dev": "electron .",
+    "lint": "eslint .",
+    "build": "vite build",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "check": "node scripts/check-build.cjs",
+    "build:win": "node scripts/build-windows.cjs",
+    "build:mac": "node scripts/build-mac.cjs",
+    "version:patch": "node scripts/version.cjs patch",
+    "version:minor": "node scripts/version.cjs minor",
+    "version:major": "node scripts/version.cjs major",
+    "version:alpha": "node scripts/version.cjs alpha",
+    "version:beta": "node scripts/version.cjs beta",
+    "version:rc": "node scripts/version.cjs rc",
+    "version:show": "node scripts/version.cjs show"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.2",
+    "concurrently": "^9.2.1",
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12",
+    "electron-is-dev": "^3.0.1",
+    "vite": "^7.3.0",
+    "wait-on": "^9.0.3"
+  },
+  "build": {
+    "appId": "com.invoiceassistant.app",
+    "productName": "发票助手",
+    "copyright": "Copyright © 2024 ${author}",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron.cjs",
+      "package.json",
+      "dist/**/*",
+      "public/**/*"
+    ],
+    "extraFiles": [
+      {
+        "from": "build/extra",
+        "to": "extra",
+        "filter": ["**/*"]
+      }
+    ],
+    "fileAssociations": [
+      {
+        "ext": "pdf",
+        "name": "PDF Document",
+        "role": "Viewer"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "requestedExecutionLevel": "asInvoker",
+      "verifyUpdateCodeSignature": false
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["universal"]
+        }
+      ],
+      "icon": "build/icon.icns",
+      "category": "public.app-category.productivity",
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "provisioningProfile": "build/embedded.provisionprofile"
+    },
+    "dmg": {
+      "title": "${productName} ${version}",
+      "background": "build/dmg-background.png",
+      "icon": "build/icon.icns",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "window": {
+        "width": 540,
+        "height": 380
+      },
+      "format": "UDZO"
+    },
+    "publish": {
+      "provider": "generic",
+      "url": "https://your-domain.com/updates"
+    }
+  }
+}
