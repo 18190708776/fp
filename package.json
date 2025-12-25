@@ -91,7 +91,9 @@
       "gatekeeperAssess": false,
       "entitlements": "build/entitlements.mac.plist",
       "entitlementsInherit": "build/entitlements.mac.plist",
-      "provisioningProfile": "build/embedded.provisionprofile"
+      "provisioningProfile": "build/embedded.provisionprofile",
+      "electronLanguages": ["zh-CN", "en"],
+      "mergeASARs": true
     },
     "dmg": {
       "title": "${productName} ${version}",
