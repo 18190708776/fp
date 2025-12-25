@@ -87,13 +87,8 @@
       "icon": "build/icon.icns",
       "category": "public.app-category.productivity",
       "artifactName": "${productName}-${version}-${arch}.${ext}",
-      "hardenedRuntime": true,
-      "gatekeeperAssess": false,
-      "entitlements": "build/entitlements.mac.plist",
-      "entitlementsInherit": "build/entitlements.mac.plist",
-      "provisioningProfile": "build/embedded.provisionprofile",
       "electronLanguages": ["zh-CN", "en"],
-      "mergeASARs": false
+      "mergeASARs": true
     },
     "dmg": {
       "title": "${productName} ${version}",
