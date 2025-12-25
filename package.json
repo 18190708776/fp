@@ -52,9 +52,18 @@
       "electron.cjs",
       "package.json",
       "dist/**/*",
+      "!dist/mac",
+      "!dist/win",
+      "!dist/linux",
+      "!dist/*.dmg",
+      "!dist/*.exe",
+      "!dist/*.zip",
       "public/**/*"
     ],
-    "asar": false,
+    "asar": true,
+    "asarUnpack": [
+      "build/extra/**/*"
+    ],
     "extraFiles": [
       {
         "from": "build/extra",
@@ -106,7 +115,9 @@
       "extendInfo": {
         "NSDocumentsFolderUsageDescription": "需要访问文档文件夹",
         "NSDownloadsFolderUsageDescription": "需要访问下载文件夹"
-      }
+      },
+      "minimumSystemVersion": "10.15.0",
+      "darkModeSupport": true
     },
     "dmg": {
       "title": "${productName} ${version}",
