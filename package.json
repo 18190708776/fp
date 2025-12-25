@@ -16,6 +16,7 @@
     "check": "node scripts/check-build.cjs",
     "build:win": "node scripts/build-windows.cjs",
     "build:mac": "node scripts/build-mac.cjs",
+    "generate-icons": "node scripts/generate-icons.mjs",
     "version:patch": "node scripts/version.cjs patch",
     "version:minor": "node scripts/version.cjs minor",
     "version:major": "node scripts/version.cjs major",
@@ -34,6 +35,8 @@
     "electron": "^39.2.7",
     "electron-builder": "^26.0.12",
     "electron-is-dev": "^3.0.1",
+    "png2icons": "^2.0.1",
+    "sharp": "^0.34.5",
     "vite": "^7.3.0",
     "wait-on": "^9.0.3"
   },
@@ -56,7 +59,9 @@
       {
         "from": "build/extra",
         "to": "extra",
-        "filter": ["**/*"]
+        "filter": [
+          "**/*"
+        ]
       }
     ],
     "fileAssociations": [
@@ -70,7 +75,9 @@
       "target": [
         {
           "target": "portable",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "build/icon.ico",
@@ -82,13 +89,24 @@
       "target": [
         {
           "target": "dmg",
-          "arch": ["universal"]
+          "arch": [
+            "universal"
+          ]
         }
       ],
       "icon": "build/icon.icns",
       "category": "public.app-category.productivity",
       "artifactName": "${productName}-${version}-${arch}.${ext}",
-      "electronLanguages": ["zh-CN", "en"]
+      "electronLanguages": [
+        "zh-CN",
+        "en"
+      ],
+      "gatekeeperAssess": false,
+      "hardenedRuntime": false,
+      "extendInfo": {
+        "NSDocumentsFolderUsageDescription": "需要访问文档文件夹",
+        "NSDownloadsFolderUsageDescription": "需要访问下载文件夹"
+      }
     },
     "dmg": {
       "title": "${productName} ${version}",
