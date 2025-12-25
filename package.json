@@ -51,6 +51,7 @@
       "dist/**/*",
       "public/**/*"
     ],
+    "asar": false,
     "extraFiles": [
       {
         "from": "build/extra",
@@ -87,8 +88,7 @@
       "icon": "build/icon.icns",
       "category": "public.app-category.productivity",
       "artifactName": "${productName}-${version}-${arch}.${ext}",
-      "electronLanguages": ["zh-CN", "en"],
-      "mergeASARs": true
+      "electronLanguages": ["zh-CN", "en"]
     },
     "dmg": {
       "title": "${productName} ${version}",
