@@ -92,7 +92,7 @@
       ],
       "icon": "build/icon.icns",
       "category": "public.app-category.productivity",
-      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "artifactName": "invoice-assistant-${version}-${arch}.${ext}",
       "electronLanguages": [
         "zh-CN",
         "en"

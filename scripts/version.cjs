@@ -50,13 +50,12 @@ try {
   const newVersion = newPackageJson.version;
 
   console.log(`\n✓ 版本号已更新: ${currentVersion} -> ${newVersion}`);
+  console.log('✓ Git提交和标签已自动创建');
 
   console.log('\n后续步骤:');
   console.log('1. 更新CHANGELOG.md');
-  console.log('2. 提交代码: git add . && git commit -m "chore(release): ' + newVersion + '"');
-  console.log('3. 创建标签: git tag -a v' + newVersion + ' -m "Release version ' + newVersion + '"');
-  console.log('4. 推送到远程: git push origin main && git push origin v' + newVersion);
-  console.log('5. 打包发布: npm run dist');
+  console.log('2. 推送到远程: git push origin main && git push origin v' + newVersion);
+  console.log('3. 打包发布: npm run dist');
 
 } catch (error) {
   console.error('\n版本号更新失败!');
