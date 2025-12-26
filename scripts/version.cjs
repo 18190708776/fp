@@ -46,7 +46,7 @@ try {
   console.log(`执行: npm version ${versionType}${preId ? ` --preid=${preId}` : ''}`);
   execSync(`npm version ${versionType}${preId ? ` --preid=${preId}` : ''}`, { stdio: 'inherit' });
 
-  const newPackageJson = require('../package.json');
+  const newPackageJson = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf-8'));
   const newVersion = newPackageJson.version;
 
   console.log(`\n✓ 版本号已更新: ${currentVersion} -> ${newVersion}`);
