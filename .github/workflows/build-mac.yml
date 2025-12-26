@@ -47,7 +47,6 @@ jobs:
       - name: Build Mac DMG
         run: npm run dist:mac
         env:
-          CSC_IDENTITY_AUTO_DISCOVERY: false
           ELECTRON_BUILDER_CACHE: ${{ github.workspace }}/.electron-builder-cache
           ELECTRON_CACHE: ${{ github.workspace }}/.electron-cache
           
