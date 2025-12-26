@@ -61,18 +61,6 @@
       "public/**/*"
     ],
     "asar": true,
-    "asarUnpack": [
-      "build/extra/**/*"
-    ],
-    "extraFiles": [
-      {
-        "from": "build/extra",
-        "to": "extra",
-        "filter": [
-          "**/*"
-        ]
-      }
-    ],
     "fileAssociations": [
       {
         "ext": "pdf",
@@ -99,7 +87,7 @@
         {
           "target": "dmg",
           "arch": [
-            "universal"
+            "arm64"
           ]
         }
       ],
